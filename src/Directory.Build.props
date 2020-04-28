@@ -1,8 +1,17 @@
 <Project>
 
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>preview</LangVersion>
     <Features>strict</Features>
   </PropertyGroup>
+
+  <Target Name="ResolveAnalyzerProjectReferences"
+          BeforeTargets="ResolveReferences">
+    <MSBuild Projects="@(AnalyzerProjectReference)"
+             Targets="Build">
+      <Output TaskParameter="TargetOutputs"
+              ItemName="Analyzer" />
+     </MSBuild>
+  </Target>
 
 </Project>

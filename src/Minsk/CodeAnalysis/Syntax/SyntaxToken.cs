@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Minsk.CodeAnalysis.Text;
 
 namespace Minsk.CodeAnalysis.Syntax
@@ -23,5 +25,7 @@ namespace Minsk.CodeAnalysis.Syntax
         /// A token is missing if it was inserted by the parser and doesn't appear in source.
         /// </summary>
         public bool IsMissing => Text == null;
+
+        public override IEnumerable<SyntaxNode> GetChildren() => Array.Empty<SyntaxNode>();
     }
 }
